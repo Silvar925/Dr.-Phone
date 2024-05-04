@@ -1,0 +1,40 @@
+footer {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--main-color);
+    height: 195px;
+    padding: 32px 315px;
+}
+
+.topBox {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer img {
+    height: 46px;
+}
+
+.right {
+    display: flex;
+    gap: 62px;
+}
+
+.socialNetwrok {
+    display: flex;
+    gap: 10px;
+}
+
+.bottomBox {
+    display: flex;
+    gap: 44px;
+}
+
+.bottomBox p {
+    color: rgb(128, 128, 128);
+    font-family: 'Montserrat';
+    font-weight: 500;
+}

@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    border: 1px solid white;
+    height: 100%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 86px;
+    padding-top: 286px;
+    height: 495px;
+}
+
+.textList {
+    display: flex;
+    gap: 44px;
+    flex-direction: column;
+}
+
+.temp {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: white;
+    font-weight: 500;
+    font-family: 'Montserrat';
+}
+
+.stocksBox {
+    display: flex;
+    gap: 14px;
+}
+
+.stocksBox img {
+    height: 317px;
+    width: 204px;
+}
+
+.stocksText {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    color: white;
+}

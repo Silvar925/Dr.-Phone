@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    gap: 72px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temp {
+    display: flex;
+    gap: 47px;
+}

@@ -1,0 +1,12 @@
+.corners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 0px 127px 0px;
+    background: rgb(24, 47, 174);
+}
+
+.corners img {
+    height: 25px;
+    width: 25px;
+}
