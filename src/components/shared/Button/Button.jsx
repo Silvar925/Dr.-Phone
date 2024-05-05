@@ -1,7 +1,7 @@
 import styles from "./Button.module.css"
 
-export const Button = ({ name }) => {
+export const Button = ({ name, style }) => {
     return (
-        <button>{name}</button>
+        <button className={styles.button} style={{ ...style }}>{name}</button>
     )
 }
