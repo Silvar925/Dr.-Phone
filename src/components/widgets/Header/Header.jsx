@@ -1,9 +1,11 @@
 import styles from "./Header.module.css"
 import { Сorners } from "../../shared/Сorners/Сorners"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { useState } from "react"
 
 export const Header = () => {
-    const location = useLocation().pathname
+    const location = useLocation().pathnameэ
+    const [isMenu, setIsMenu] = useState(false)
 
     return (
         <header>
@@ -16,13 +18,27 @@ export const Header = () => {
 
             <div className={styles.right}>
                 <img src="interfaceIcons/shop.svg" alt="shop" />
-                <Сorners style={{ height: '163px', width: '118px' }} img="interfaceIcons/menuburger.svg" />
+                <Сorners style={{ height: '163px', width: '118px' }} img="interfaceIcons/menuburger.svg"
+                    onClick={() => setIsMenu(!isMenu)} />
             </div>
+
+            {
+                isMenu === true &&
+                <ul className={styles.menu}>
+                    <Link to="/">ГЛАВНАЯ</Link>
+                    <Link to="/serivce">УСЛУГИ</Link>
+                    <Link to="/map">КАРТА ЖЕ ЕСТЬ</Link>
+                    <Link to="/products">ПРОДУКТЫ</Link>
+                </ul>
+            }
+
+
         </header>
     )
 }
 
 
 const dictionary = {
-    '/serivce': 'УСЛУГИ И ТОВАРЫ'
+    '/serivce': 'УСЛУГИ И ТОВАРЫ',
+    '/map': 'КАК НАС НАЙТИ'
 }

@@ -1,0 +1,46 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact {
+    position: absolute;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    left: 310px;
+
+    padding: 42px 51px;
+
+    width: 439px;
+    height: 501px;
+
+    box-sizing: border-box;
+    border: 1px solid rgb(179, 179, 179);
+    background: rgb(255, 255, 255);
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 329px;
+    height: 91px;
+    border: 1px solid rgb(179, 179, 179);
+}
+
+.boxInfo {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    font-family: 'Montserrat';
+}
+
+.contact h1 {
+    font-family: 'Montserrat';
+}
