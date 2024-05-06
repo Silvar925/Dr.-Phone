@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom"
 import { useState } from "react"
 
 export const Header = () => {
-    const location = useLocation().pathnameэ
+    const location = useLocation().pathname
     const [isMenu, setIsMenu] = useState(false)
 
     return (
@@ -40,5 +40,12 @@ export const Header = () => {
 
 const dictionary = {
     '/serivce': 'УСЛУГИ И ТОВАРЫ',
-    '/map': 'КАК НАС НАЙТИ'
+    '/map': 'КАК НАС НАЙТИ',
+
+    '/serivce/phones' : 'ТЕЛЕФОНЫ',
+    '/serivce/allDevices' : 'ВСЕ УСТРОЙСТВА',
+    '/serivce/accessories' : 'АКСЕССУАРЫ',
+    '/serivce/deviceProtection' : 'ЗАЩИТА УСТРОЙСТВА',
+    '/serivce/iMac' : 'iMAC',
+    '/serivce/covers' : 'Чехлы',
 }

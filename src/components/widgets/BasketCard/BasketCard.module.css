@@ -1,0 +1,60 @@
+.card {
+    display: flex;
+    width: 856px;
+    border-top: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    padding: 19px;
+    height: 84px;
+}
+
+.container img {
+    height: 88px;
+    width: 88px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name {
+    width: 273px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.delete {
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: 'Montserrat';
+    color: gray;
+    font-weight: 600;
+}
+
+.delete img {
+    border: none;
+    height: 19px;
+    width: 16px;
+    border-radius: 0px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}

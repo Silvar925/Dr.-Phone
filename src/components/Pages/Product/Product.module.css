@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.left {
+    display: flex;
+    gap: 32px;
+}
+
+.left img {
+    width: 470px;
+    height: 559px;
+    border-radius: 10px;
+}
+
+.filterList {
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+}
+
+.right {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.priceBox {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.whiteCard {
+    display: flex;
+    justify-content: center;
+    width: 313px;
+    gap: 20px;
+    flex-direction: column;
+}
