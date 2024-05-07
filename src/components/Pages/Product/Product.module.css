@@ -47,3 +47,20 @@
     gap: 20px;
     flex-direction: column;
 }
+
+.swiperBox {
+    margin: 0 !important;
+    width: 470px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.swiperBox img {
+    height: 95px;
+    width: 110px;
+}
+
+.swiperContainer {
+    display: flex;
+}

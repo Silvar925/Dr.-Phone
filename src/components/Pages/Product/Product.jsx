@@ -7,6 +7,9 @@ import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { Button } from "../../shared/Button/Button"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
 export const Product = () => {
     const location = useLocation().pathname
     let producetID = getStringFromRight(location)
@@ -36,7 +39,18 @@ export const Product = () => {
                     </div>
                 </div>
 
-                <div style={{ border: '2px solid white', height: '100px' }}>
+                <div className={styles.swiperContainer}>
+                    <Swiper
+                        spaceBetween={16}
+                        slidesPerView={3}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        className={styles.swiperBox}
+                    >
+                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
+                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
+                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
 

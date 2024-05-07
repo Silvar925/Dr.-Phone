@@ -1,7 +1,7 @@
 export const phones = [
     {
         id: "phone1",
-        img: "../../../../public/ProductImages/Border.png",
+        img: "../../../../ProductImages/Border.png",
         alt: 'iPhone',
         name: 'Apple iPhone 15 129Gb SIM + Черный',
         price: [124999, 85990],

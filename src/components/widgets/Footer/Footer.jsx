@@ -1,19 +1,25 @@
 import styles from "./Footer.module.css"
 import { RoundButton } from "../../shared/RoundButton/RoundButton"
 
+import instagram from "../../../assets/socialNetworkIcon/instagram.svg"
+import telegram from "../../../assets/socialNetworkIcon/telegram.svg"
+import whatsApp from "../../../assets/socialNetworkIcon/whatsApp.svg"
+import alazar from "../../../assets/alazar.svg"
+import drPhone from "../../../assets/dr.phone.svg"
+
 export const Footer = () => {
     return (
         <footer>
             <div className={styles.topBox}>
-                <img src="dr.phone.svg" alt="Dr.Phone_logo" />
+                <img src={drPhone} alt="Dr.Phone_logo" />
 
                 <div className={styles.right}>
                     <div className={styles.socialNetwrok}>
-                        <RoundButton img="socialNetworkIcon/instagram.svg" alt="instagram" />
-                        <RoundButton img="socialNetworkIcon/telegram.svg" alt="telegram" />
-                        <RoundButton img="socialNetworkIcon/whatsApp.svg" alt="whatsapp" />
+                        <RoundButton img={instagram} alt="instagram" />
+                        <RoundButton img={telegram} alt="telegram" />
+                        <RoundButton img={whatsApp} alt="whatsapp" />
                     </div>
-                    <img src="alazar.svg" alt="AlazarStudioLogo" />
+                    <img src={alazar} alt="AlazarStudioLogo" />
                 </div>
             </div>
 
