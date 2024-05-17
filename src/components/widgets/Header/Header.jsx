@@ -1,7 +1,10 @@
 import styles from "./Header.module.css"
 import { Сorners } from "../../shared/Сorners/Сorners"
+import { Input } from "../../shared/Input/Input"
 import { Link, useLocation } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
+
+import { removeUntilFirstSlash } from "../../helpers"
 
 import menuIcon from "../../../assets/interfaceIcons/menu.svg"
 import menuBurgerIcon from "../../../assets/interfaceIcons/menuburger.svg"
@@ -21,7 +24,6 @@ export const Header = () => {
         }
     }, [location]);
 
-
     const menu = useRef(null)
 
     const clickHandle = () => {
@@ -32,20 +34,49 @@ export const Header = () => {
         }
     }
 
+    const hideMenu = () => {
+        setIsMenu(false)
+    }
+
+    let mobile = (window.innerWidth >= 320 && window.innerWidth <= 435)
+    let url = removeUntilFirstSlash(location)
+
+    const displayLogo = () => {
+        let keys = Object.keys(dictionary)
+
+        for (let key of keys) {
+            if (url === key || mobile === false) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
+
     return (
         <header>
-            <Link to={!click ? '/serivce' : '/'}>
+            <Link to={!click ? '/serivce' : '/'} className={styles.corners}>
                 <Сorners onClick={() => setClick(!click)}
                     style={{
                         height: '144px', width: '136px', borderRadius: '0px 0px 127px 0px'
-                    }} img={menuIcon} />
+                    }} img={menuIcon}
+                />
             </Link>
 
-
             <div className={styles.logo}>
-                <Link to="/">
-                    <img src={logoIcon} alt="dr.phone" />
-                </Link>
+
+                {mobile === true && <Input className={styles.input}
+                    onClick={() => clickHandle()}
+                />}
+
+                {
+                    displayLogo() === true &&
+                    <Link to="/">
+                        <img src={logoIcon} alt="dr.phone" />
+                    </Link>
+                }
+
                 <h1>{dictionary[location]}</h1>
             </div>
 
@@ -57,22 +88,23 @@ export const Header = () => {
                 <Сorners
                     style={{ height: '170px', width: '136px', borderRadius: '0px 0px 0px 127px' }}
                     img={menuBurgerIcon}
-                    onClick={() => clickHandle()} />
+                    onClick={() => clickHandle()} className={styles.corners} />
             </div>
 
             {
                 isMenu === true &&
                 <ul className={styles.menu} ref={menu}>
-                    <Link to="/serivce/phones">ТЕЛЕФОНЫ</Link>
-                    <Link to="/serivce/phones">АКСЕССУАРЫ</Link>
-                    <Link to="/serivce/phones">БУ УСТРОЙСТВА</Link>
-                    <Link to="/serivce/phones">РЕМОНТ</Link>
-                    <Link to="/serivce/phones">ЗАЩИТА УСТРОЙСТВА 360</Link>
-                    <Link to="/serivce/phones">ЧЕХЛЫ</Link>
-                    <Link to="/serivce/phones">I MAC</Link>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>ТЕЛЕФОНЫ</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>АКСЕССУАРЫ</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>БУ УСТРОЙСТВА</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>РЕМОНТ</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>ЗАЩИТА УСТРОЙСТВА 360</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>ЧЕХЛЫ</Link></li>
+                    <li><Link to="/serivce/phones" onClick={hideMenu}>I MAC</Link></li>
+                    <li><Link to="/map" onClick={hideMenu}>Карта</Link></li>
                 </ul>
             }
-        </header>
+        </header >
     )
 }
 

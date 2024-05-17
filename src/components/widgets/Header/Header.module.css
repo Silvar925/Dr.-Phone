@@ -1,9 +1,9 @@
 header {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: space-between;
     align-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 25px;
 }
 
 .logo {
@@ -63,8 +63,6 @@ header {
     align-items: center;
     justify-content: center;
     box-shadow: 0.3s ease;
-
-    /* border: 1px solid white; */
     height: 45px;
     width: 45px;
 }
@@ -72,4 +70,63 @@ header {
 .basket:hover {
     border: 1px solid rgb(255, 255, 255);
     background: rgb(255, 255, 255);
+}
+
+.input {
+    display: none !important;
+}
+
+.contactContainerMobile {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contactContainerMobile {
+    display: flex;
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+    header {
+        justify-content: center;
+    }
+
+    .corners {
+        display: none !important;
+    }
+
+    .basket {
+        display: none;
+    }
+
+    .logo {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 24px;
+    }
+
+    .logo img {
+        height: 40px;
+        width: 158px;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+
+    .input {
+        display: flex !important;
+    }
+
+    .menu {
+        padding: 20px;
+        left: 0;
+        top: 90px;
+        width: auto;
+        height: 264px;
+        border-radius: 10px;
+        margin-left: 40px;
+        margin-right: 40px;
+        z-index: 2;
+    }
 }

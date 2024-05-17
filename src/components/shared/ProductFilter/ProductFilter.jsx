@@ -1,8 +1,6 @@
 import styles from "./ProductFilter.module.css";
 
 export const ProductFilter = ({ name, type, listItems }) => {
-    console.log(listItems)
-
     return (
         <div className={styles.container}>
             <div className={styles.title}>
@@ -14,8 +12,8 @@ export const ProductFilter = ({ name, type, listItems }) => {
                     {
                         listItems.map((item, index) => {
                             return (
-                                <div className={styles.colorParent} >
-                                    <div key={index} className={styles.color} style={{ background: item, }} />
+                                <div className={styles.colorParent} key={`color${index}`}>
+                                    <div className={styles.color} style={{ background: item }} />
                                 </div>
                             )
                         })
@@ -26,7 +24,7 @@ export const ProductFilter = ({ name, type, listItems }) => {
                     {
                         listItems.map((item, index) => {
                             return (
-                                <div key={index} className={styles.tag}>
+                                <div className={styles.tag} key={`tag${index}`}>
                                     {item}
                                 </div>
                             )

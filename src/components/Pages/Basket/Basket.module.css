@@ -8,6 +8,7 @@
 .basket {
     display: flex;
     gap: 18px;
+    /* padding: 28px 60px; */
     flex-direction: column;
 }
 
@@ -25,10 +26,32 @@
 
 .list {
     display: flex;
+    gap: 15px;
     flex-direction: column;
 }
 
 .right {
     display: flex;
     gap: 18px;    
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .container {
+        gap: 24px;
+        flex-direction: column;
+    }
+    
+    .basket {
+        border-radius: 0px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        gap: 5px;
+    }
+
+    .getProduct {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

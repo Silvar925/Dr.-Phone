@@ -11,10 +11,11 @@
     gap: 40px;
 }
 
-
-/* .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 44px;
-} */
+@media (min-width: 320px) and (max-width: 435px) {
+    .container {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+}

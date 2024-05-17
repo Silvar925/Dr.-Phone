@@ -1,16 +1,22 @@
+import React, { useState } from 'react';
 import styles from "./Product.module.css"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { ProductFilter } from "../../shared/ProductFilter/ProductFilter"
 import { getStringFromRight } from "../../helpers"
-import { phones } from "../../data"
+import { phones, baskesList } from "../../data"
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { Button } from "../../shared/Button/Button"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
+import { ArrowButton } from "../../shared/ArrowButton/ArrowButton"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import btnBack from "../../../assets/btnBack.svg"
+
 export const Product = () => {
+    const [swiper, setSwiper] = React.useState(null);
+
     const location = useLocation().pathname
     let producetID = getStringFromRight(location)
 
@@ -22,15 +28,88 @@ export const Product = () => {
         }
     }
 
+    const [clickImages, setClickImages] = useState(false)
+    const [img, setImg] = useState(null)
+
+    const clickSlideHandel = (item) => {
+        setImg(item)
+        setClickImages(!clickImages)
+    }
+
+    const addProductInBasket = (product) => {
+        baskesList.push(product)
+    }
+
+    let mobile = (window.innerWidth >= 320 && window.innerWidth <= 435)
+
     return (
-        <section className={styles.container}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-                <div className={styles.title}>
-                    <h1>{product.name}</h1>
-                </div>
+        <main className={styles.container}>
+            <div className={styles.bradcrumb}>
+
+                <Link to="..">
+                    <img src={btnBack} alt="btnBack" />
+                </Link>
+
+                <hr />
+            </div>
+
+            <div className={styles.box}>
+
+                {
+                    mobile === false &&
+                    <header className={styles.title}>
+                        <h1>{product.name}</h1>
+                    </header>
+                }
+
 
                 <div className={styles.left}>
-                    <img src={product.img} alt={product.alt} />
+                    {
+                        mobile === true ? (
+                            <div className={styles.swiperContainer}>
+                                <Swiper
+                                    spaceBetween={16}
+                                    slidesPerView={1}
+                                    className={styles.swiperBox}
+                                >
+
+                                    {
+                                        product.images.map((item, index) => {
+                                            return (
+                                                <SwiperSlide key={index}
+                                                    style={{
+                                                        display: 'flex',
+                                                        justifyContent: 'center'
+                                                    }}
+                                                >
+                                                    <img src={item} alt="#" />
+                                                </SwiperSlide>
+                                            )
+                                        })
+                                    }
+                                </Swiper>
+
+                                <div className={styles.carousel}>
+                                    {
+                                        phones.map((item, index) => {
+                                            console.log(item)
+                                            return (
+                                                <div key={item.id} className={styles.carouselDote} />
+                                            )
+                                        })
+                                    }
+                                </div>
+
+                                <header className={styles.title}>
+                                    <h1>{product.name}</h1>
+                                </header>
+                            </div>
+                        ) : (
+                            <img src={img === null ? product.img : img} alt={product.alt} />
+                        )
+                    }
+
+
 
                     <div className={styles.filterList}>
                         <ProductFilter name="Цвета" type="color" listItems={product.colors} />
@@ -39,19 +118,38 @@ export const Product = () => {
                     </div>
                 </div>
 
-                <div className={styles.swiperContainer}>
-                    <Swiper
-                        spaceBetween={16}
-                        slidesPerView={3}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
-                        className={styles.swiperBox}
-                    >
-                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
-                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
-                        <SwiperSlide><img src="../../../../ProductImages/Border.png" alt="#" /></SwiperSlide>
-                    </Swiper>
-                </div>
+                {
+                    mobile === false &&
+                    <div className={styles.swiperContainer}>
+                        <ArrowButton orient="left" onClick={() => swiper.slidePrev()} />
+
+                        <Swiper
+                            spaceBetween={16}
+                            slidesPerView={3}
+                            onSlideChange={() => console.log('slide change')}
+                            className={styles.swiperBox}
+                            onSwiper={(s) => {
+                                setSwiper(s);
+                            }}
+                        >
+
+                            {
+                                product.images.map((item, index) => {
+                                    return (
+                                        <SwiperSlide key={index}
+                                            onClick={() => clickSlideHandel(item)} className={styles.slide}
+                                        ><img src={item} alt="#" /></SwiperSlide>
+                                    )
+                                })
+                            }
+                        </Swiper>
+
+                        <ArrowButton orient="right" onClick={() => swiper.slideNext()} />
+
+                    </div>
+
+                }
+
             </div>
 
             <div className={styles.right}>
@@ -61,7 +159,7 @@ export const Product = () => {
                         <p style={{ fontSize: '24px' }}>{product.price[1]}₽</p>
                     </div>
 
-                    <Button name="В корзину" style={{ textAlign: 'center' }} />
+                    <Button name="В корзину" style={{ textAlign: 'center' }} onClick={() => addProductInBasket(product)} />
                 </WhiteBox>
 
                 <GetProduct />
@@ -70,7 +168,7 @@ export const Product = () => {
             </div>
 
 
-        </section>
+        </main>
     )
 }
 

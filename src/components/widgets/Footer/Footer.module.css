@@ -39,3 +39,39 @@ footer img {
     font-family: 'Montserrat';
     font-weight: 500;
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+    footer {
+        margin-top: 30px;
+        gap: 14px;
+        padding: 15px;
+        height: 314px;
+        justify-content: center;
+    }
+
+    footer img {
+        width: 182px;
+        height: 46px;
+    }
+
+    .topBox {
+        gap: 24px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .right {
+        gap: 32px;
+        flex-direction: column;
+    }
+
+    .bottomBox {
+        gap: 10px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .bottomBox p {
+        font-size: 12px;
+    }
+}

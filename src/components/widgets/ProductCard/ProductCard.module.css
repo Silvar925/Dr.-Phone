@@ -38,3 +38,9 @@
     text-align: left;
     font-weight: 500;
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .card {
+        width: 300px;
+    } 
+}

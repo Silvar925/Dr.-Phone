@@ -1,9 +1,11 @@
 import styles from "./BasketCard.module.css"
 import { QuantitySelector } from "../../shared/QuantitySelector/QuantitySelector"
 
+import deleteIcon from "../../../assets/delete.svg"
+
 export const BasketCard = ({ name, img, alt }) => {
     return (
-        <div className={styles.card}>
+        <article className={styles.card}>
             <div className={styles.container}>
                 <img src={img} alt={alt} />
 
@@ -11,7 +13,7 @@ export const BasketCard = ({ name, img, alt }) => {
                     <p className={styles.name}>{name}</p>
 
                     <div className={styles.delete}>
-                        <img src="delete.svg" alt="delete" />
+                        <img src={deleteIcon} alt="delete" />
                         <p>Удалить</p>
                     </div>
                 </div>
@@ -22,6 +24,6 @@ export const BasketCard = ({ name, img, alt }) => {
                 <p>8800₽</p>
             </div>
 
-        </div>
+        </article>
     )
 }

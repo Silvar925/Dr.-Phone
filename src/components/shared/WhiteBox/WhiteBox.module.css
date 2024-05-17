@@ -4,3 +4,10 @@
     padding: 20px;
     font-family: 'Montserrat';
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .container {
+        padding: 10px;
+        width: auto;
+    }
+}

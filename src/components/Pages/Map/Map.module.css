@@ -58,6 +58,31 @@
 }
 
 .boxText {
-    /* font-size: 16px; */
     font-weight: 500;
+}
+
+.contactContainerMobile {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 30px;
+}
+
+.boxMobile {
+    border: 1px solid rgb(179, 179, 179);
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .contactContainer {
+        display: none;
+    }
+
+    .box {
+        width: 290px;
+        margin-bottom: 25px;
+    }
 }

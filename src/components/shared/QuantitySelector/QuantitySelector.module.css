@@ -13,6 +13,7 @@
 }
 
 .temp {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,4 +25,11 @@
 
 .temp:hover {
     background-color: lightgray;
+}
+
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .selector {
+        width: 120px;
+    }
 }

@@ -9,3 +9,9 @@
     display: flex;
     gap: 47px;
 }
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .temp {
+        flex-direction: column;
+    }
+}

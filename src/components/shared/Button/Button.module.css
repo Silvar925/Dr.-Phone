@@ -18,3 +18,10 @@
 .button:hover {
     background: rgb(143, 24, 74);
 }
+
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .button {
+        width: auto;
+    }    
+}

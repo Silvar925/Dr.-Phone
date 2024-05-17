@@ -1,42 +1,61 @@
 import styles from "./Home.module.css"
 
+import { RoundButton } from "../../shared/RoundButton/RoundButton"
+import { ServiceCard } from "../../widgets/ServiceCard/ServiceCard"
+import { ArrowButton } from "../../shared/ArrowButton/ArrowButton"
+
+import instagram from "../../../assets/socialNetworkIcon/instagram.svg"
+import telegram from "../../../assets/socialNetworkIcon/telegram.svg"
+import whatsApp from "../../../assets/socialNetworkIcon/whatsApp.svg"
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { useRef, useEffect, useState } from "react"
+
+
 export const Home = () => {
     return (
-        <section className={styles.container}>
-            <div className={styles.left}>
-                <div className={styles.textList}>
-                    <div className={styles.temp}>
-                        <img src="interfaceIcons/truck.svg" alt="#" />
-                        <p>Доставка по России</p>
-                    </div>
+        <main className={styles.container}>
+            <ul className={styles.left}>
+                <li><p><span><img src="ProductImages/truck.svg" alt="truck" /></span><span>Доставка по России</span></p>
+                </li>
+                <li><p><span><img src="ProductImages/monitor.svg" alt="handbag" /></span><span>Как нас найти</span></p>
+                </li>
+                <li><p><span><img src="ProductImages/call.svg" alt="call" /></span><span>89383499996</span></p></li>
+            </ul>
 
-                    <div className={styles.temp}>
-                        <img src="interfaceIcons/monitor.svg" alt="#" />
-                        <p>Доставка по России</p>
-                    </div>
 
-                    <div className={styles.temp}>
-                        <img src="interfaceIcons/phone.svg" alt="#" />
-                        <p>Доставка по России</p>
-                    </div>
+            <div className={styles.middle}>
+                <div className={styles.topBox}>
+                    <Swiper className={styles.swiperBox}
+                        spaceBetween={50}
+                        slidesPerView={3}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                    >
+                        <SwiperSlide><ServiceCard img="serviceCardList/phone.png" alt="phone" name="ТЕЛЕФОНЫ" imgSize={{ width: '112px', height: '197px' }} url="phones" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/iphones.png" alt="iphones" name="ВСЕ УСТРОЙСТВА" imgSize={{ width: '247px', height: '161px' }} url="allDevices" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/appleWatch.png" alt="appleWatch" name="АКСЕССУАРЫ" imgSize={{ width: '144px', height: '180px' }} url="accessories" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/origPhotoroom.png" alt="origPhotoroom" name="РЕМОНТ" imgSize={{ width: '254px', height: '121px' }} url="repair" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/origPhotoroom2.png" alt="origPhotoroom" name="ЗАЩИТА УСТРОЙСТВА 360" imgSize={{ width: '215px', height: '184px' }} url="deviceProtection" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/appleMacPro.png" alt="origPhotoroom" name="I MAC" imgSize={{ width: '170px', height: '218px' }} url="iMac" /></SwiperSlide>
+                        <SwiperSlide><ServiceCard img="serviceCardList/origPhotoroom3.png" alt="origPhotoroom" name="ЧЕХЛЫ" imgSize={{ width: '78px', height: '205px' }} url="covers" /></SwiperSlide>
+                    </Swiper>
                 </div>
 
-                {/* <div className={styles.stocksBox}>
-                    <img src="stocks.png" alt="stock" />
-                    <div className={styles.stocksText}>
-                        <p>Акции</p>
-                        <hr />
-                        <p>При покупке телефона чехол и броня в подарок</p>
+                <div>
+                    <img src="RedLogo.svg" alt="DrPhone" />
+                </div>
 
-                    </div>
-                </div> */}
-            </div>
-
-            <div>
-                <h1>Центр</h1>
 
             </div>
 
-        </section>
+            <ul className={styles.right}>
+                <li><RoundButton img={instagram} alt="instagram" /></li>
+                <li><RoundButton img={whatsApp} alt="whatsapp" /></li>
+                <li><RoundButton img={telegram} alt="telegram" /></li>
+            </ul>
+
+        </main>
     )
 }

@@ -1,47 +1,51 @@
 .container {
     display: flex;
-    /* border: 1px solid white; */
-    height: 100%;
+    padding-left: 86px;
+    padding-right: 86px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .left {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 86px;
-    padding-top: 286px;
-    height: 495px;
-}
-
-.textList {
-    display: flex;
     gap: 44px;
+    width: 261px;
     flex-direction: column;
 }
 
-.temp {
+.left p {
     display: flex;
-    align-items: center;
     gap: 24px;
+
     color: white;
-    font-weight: 500;
+    font-size: 24px;
     font-family: 'Montserrat';
+    font-weight: 400;
 }
 
-.stocksBox {
+.right {
+    gap: 16px;
+    width: 261px;
     display: flex;
-    gap: 14px;
-}
-
-.stocksBox img {
-    height: 317px;
-    width: 204px;
-}
-
-.stocksText {
-    display: flex;
-    gap: 10px;
     flex-direction: column;
-    font-family: 'Montserrat';
-    color: white;
+}
+
+.middle {
+    display: flex;
+    gap: 52px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topBox {
+    display: flex;
+}
+
+.topBox ul {
+    display: flex;
+    gap: 67px;
+}
+
+.swiperBox {
+    width: 800px;
 }
