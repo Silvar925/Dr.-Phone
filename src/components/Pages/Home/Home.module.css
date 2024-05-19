@@ -4,6 +4,7 @@
     padding-right: 86px;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .left {
@@ -35,10 +36,16 @@
     gap: 52px;
     flex-direction: column;
     align-items: center;
+    /* position: relative; */
+
+    --drop-gap: 30px;
+    --drop-height: 100px;
 }
 
 .topBox {
     display: flex;
+    gap: 110px;
+    align-items: center;
 }
 
 .topBox ul {
@@ -48,4 +55,173 @@
 
 .swiperBox {
     width: 800px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+.logoIMG {
+    z-index: 2;
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.rounded {
+    width: 940px;
+    height: 217px;
+    position: absolute;
+    bottom: -30px;
+}
+
+.logoShadow {
+    --base-shadow-width: 267px;
+    --base-shadow-height: 53px;
+
+    width: var(--base-shadow-width);
+    height: var(--base-shadow-height);
+
+    filter: blur(50px);
+    background: black;
+
+    animation-name: bounceShadow;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(-23px);
+    }
+}
+
+@keyframes bounceShadow {
+    0% {
+        width: var(--base-shadow-width);
+        height: var(--base-shadow-height);
+    }
+
+    100% {
+        width: 280px;
+        height: 53px;
+    }
+}
+
+.dumai {
+    background-color: #1A77C6;
+    height: 100px;
+    width: 5px;
+    height: 200px;
+
+    animation: glow 1.5s infinite alternate;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+}
+
+@keyframes drop {
+    0% {
+        /* transition: border-radius .3s cubic-bezier(.2, 0, 0, 1), background-color .3s cubic-bezier(.2, 0, 0, 1); */
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 100px));
+    }
+}
+
+.leftAnimation {
+    display: flex;
+    flex-direction: column;
+    gap: 873px;
+
+    position: absolute;
+    top: 0;
+    left: 520px;
+    animation-name: drop;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation-direction: reverse; */
+}
+
+.rightAnimation {
+    position: absolute;
+    top: 0;
+    right: 520px;
+    animation-name: drop;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .container {
+        padding: 0px;
+        flex-direction: column;
+    }
+
+    .container ul {
+        padding-top: 50px;
+        gap: 44px;
+    }
+
+    .container ul li {
+        text-align: left;
+    }
+
+    .container ul li p {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .rounded {
+        height: 160px;
+        width: 90%;
+    }
+
+    .logoIMG {
+        width: 100%;
+        height: 200px;
+    }
+
+    .left {
+        width: 100%;
+        align-items: center;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
 }

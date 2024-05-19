@@ -40,6 +40,10 @@
         gap: 24px;
         flex-direction: column;
     }
+
+    .list {
+        width: 100%;
+    }
     
     .basket {
         border-radius: 0px;

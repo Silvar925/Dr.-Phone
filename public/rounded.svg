@@ -1,0 +1,34 @@
+<svg width="949.000000" height="247.000000" viewBox="0 0 949 247" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_13_5_dd" x="0.000000" y="-0.709106" width="948.473877" height="247.640015" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+		<radialGradient gradientTransform="translate(616.5 133.5) rotate(158.906) scale(293.142 57.7829)" cx="0.000000" cy="0.000000" r="1.000000" id="paint_radial_13_6_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFFFFF" stop-opacity="0.000000"/>
+			<stop offset="1.000000" stop-color="#FFFFFF"/>
+		</radialGradient>
+	</defs>
+	<g filter="url(#filter_13_5_dd)">
+		<ellipse id="Ellipse 1" cx="474.236816" cy="146.239929" rx="469.736938" ry="92.190941" stroke="#FFFFFF" stroke-opacity="0.500000" stroke-width="1.000000"/>
+		<ellipse id="Ellipse 1" cx="474.236816" cy="146.239929" rx="469.736938" ry="92.190941" stroke="url(#paint_radial_13_6_0)" stroke-opacity="0.200000" stroke-width="1.000000"/>
+		<ellipse id="Ellipse 4" cx="474.236816" cy="146.616699" rx="237.379227" ry="47.475845" stroke="#FFFFFF" stroke-opacity="0.500000" stroke-width="1.000000"/>
+		<ellipse id="Ellipse 2" cx="474.236816" cy="119.110840" rx="469.736938" ry="92.190941" stroke="#FFFFFF" stroke-opacity="0.350000" stroke-width="1.000000"/>
+		<ellipse id="Ellipse 3" cx="474.236816" cy="91.981842" rx="469.736938" ry="92.190941" stroke="#FFFFFF" stroke-opacity="0.150000" stroke-width="1.000000"/>
+		<g opacity="0.200000">
+			<path id="Vector 2" d="M692.55 180.2L744.25 196.49C744.25 196.49 825.48 181.12 832.44 149.67C840.55 113.02 688.5 91.65 688.5 91.65L653.02 99.79C653.02 99.79 765.97 116.08 762.5 143.56C758.53 174.87 692.55 180.2 692.55 180.2Z" fill="#ED3A86" fill-opacity="1.000000" fill-rule="evenodd"/>
+		</g>
+		<g opacity="0.200000">
+			<path id="Vector 1" d="M253.76 94.14L292.46 103.35C292.46 103.35 216.08 117.67 198.77 132C123.82 193.99 466.49 207.63 466.49 207.63L493.5 222.79C493.5 222.79 54.5 222.79 125.44 137.11C155.58 100.71 253.76 94.14 253.76 94.14Z" fill="#ED3A86" fill-opacity="1.000000" fill-rule="evenodd"/>
+		</g>
+	</g>
+</svg>
