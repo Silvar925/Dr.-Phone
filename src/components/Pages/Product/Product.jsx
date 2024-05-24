@@ -44,14 +44,17 @@ export const Product = () => {
 
     return (
         <main className={styles.container}>
-            <div className={styles.bradcrumb}>
+            {
+                mobile === true &&
+                <div className={styles.bradcrumb}>
+                    <Link to="..">
+                        <img src={btnBack} alt="btnBack" />
+                    </Link>
 
-                <Link to="..">
-                    <img src={btnBack} alt="btnBack" />
-                </Link>
+                    <hr />
+                </div>
+            }
 
-                <hr />
-            </div>
 
             <div className={styles.box}>
 

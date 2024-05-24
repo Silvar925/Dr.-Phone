@@ -1,16 +1,22 @@
 footer {
-    margin-top: 80px;
     display: flex;
     gap: 54px;
     flex-direction: column;
     background-color: var(--main-color);
     padding: 32px 315px;
+    align-items: center;
 }
 
 .topBox {
+    width: 1300px;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+}
+
+.temp {
+    display: flex;
+    gap: 54px;
+    flex-direction: column;
 }
 
 footer img {
@@ -40,7 +46,7 @@ footer img {
 
 @media (min-width: 320px) and (max-width: 435px) {
     footer {
-        /* margin-top: 30px; */
+        margin: 30px 0px;
         gap: 14px;
         padding: 15px;
         height: 314px;
@@ -53,6 +59,7 @@ footer img {
     }
 
     .topBox {
+        width: 100%;
         gap: 24px;
         flex-direction: column;
         align-items: center;

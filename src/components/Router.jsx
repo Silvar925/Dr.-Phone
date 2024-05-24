@@ -6,22 +6,25 @@ import { Map } from "./Pages/Map/Map"
 import { Products } from "./Pages/Products/Products"
 import { Product } from "./Pages/Product/Product"
 import { Basket } from "./Pages/Basket/Basket"
+import { WidthConatiner } from "./WidthConatiner"
 
 export const Router = () => {
     return (
         <BrowserRouter>
             <Routes >
                 <Route path="/" element={<Layout />}>
-                    <Route path="/" element={<Home />} />
-
-                    <Route path="/serivce" element={<Service />} >
-                        <Route path=":products" element={<Products />} >
-                            <Route path=":product" element={<Product />} />
+                    <Route path="/" element={<WidthConatiner />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/serivce" element={<Service />} >
+                            <Route path=":products" element={<Products />} >
+                                <Route path=":product" element={<Product />} />
+                            </Route>
                         </Route>
                     </Route>
-
-                    <Route path="/map" element={<Map />} />
+                    
                     <Route path="/basket" element={<Basket />} />
+                    <Route path="/map" element={<Map />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

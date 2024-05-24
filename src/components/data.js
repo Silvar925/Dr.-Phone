@@ -94,7 +94,7 @@ export const phones = [
         images: ['../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png'],
         SIM: ['SIM + SIM', 'ESIM + SIM', 'ESIM ONLY'],
         memory: ['128Gb', '256Gb', '512Gb']
-    },
+    }
 ]
 
 

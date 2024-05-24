@@ -13,6 +13,7 @@ import shopIcon from "../../../assets/interfaceIcons/shop.svg"
 
 export const Header = () => {
     const location = useLocation().pathname
+
     const [isMenu, setIsMenu] = useState(false)
     const [click, setClick] = useState(false)
     const menu = useRef(null)
@@ -55,9 +56,9 @@ export const Header = () => {
 
     useEffect(() => {
         const handleDocumentClick = (event) => {
-            if (menu.current && !menu.current.contains(event.target)) {
-                hideMenu()
-            }
+            // if (menu.current && !menu.current.contains(event.target)) {
+            //     hideMenu()
+            // }
         };
 
         document.addEventListener('click', handleDocumentClick);
@@ -69,11 +70,11 @@ export const Header = () => {
 
 
     return (
-        <header>
+        <header className={styles.navbar}>
             <Link to={!click ? '/serivce' : '/'} className={styles.corners}>
                 <Сorners onClick={() => setClick(!click)}
                     style={{
-                        height: '144px', width: '136px', borderRadius: '0px 0px 127px 0px'
+                        height: '100%', width: '136px', borderRadius: '0px 0px 127px 0px'
                     }} img={menuIcon}
                 />
             </Link>
@@ -100,7 +101,7 @@ export const Header = () => {
                 </Link>
 
                 <Сorners
-                    style={{ height: '170px', width: '136px', borderRadius: '0px 0px 0px 127px' }}
+                    style={{ height: '100%', width: '136px', borderRadius: '0px 0px 0px 127px' }}
                     img={menuBurgerIcon}
                     onClick={() => clickHandle()} className={styles.corners} />
             </div>

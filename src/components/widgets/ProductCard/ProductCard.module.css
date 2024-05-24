@@ -1,6 +1,8 @@
 .card {
     display: flex;
+    width: 100%;
     flex-direction: column;
+    border: 1px solid white;
 }
 
 .cardInfo {
@@ -10,9 +12,6 @@
     flex-direction: column;
     color: white;
     font-family: 'Montserrat';
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
 }
 
 .textBox {
@@ -26,8 +25,6 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 130%;
-    letter-spacing: 0%;
-    text-align: left;
 }
 
 .price {
@@ -40,7 +37,5 @@
 }
 
 @media (min-width: 320px) and (max-width: 435px) {
-    .card {
-        width: 300px;
-    } 
+     
 }

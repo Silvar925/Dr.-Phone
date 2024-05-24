@@ -10,23 +10,27 @@ import drPhone from "../../../assets/dr.phone.svg"
 export const Footer = () => {
     return (
         <footer>
-            <div className={styles.topBox}>
-                <img src={drPhone} alt="Dr.Phone_logo" />
+            <div className={styles.temp}>
+                <div className={styles.topBox}>
+                    <img src={drPhone} alt="Dr.Phone_logo" />
 
-                <div className={styles.right}>
-                    <div className={styles.socialNetwrok}>
-                        <RoundButton img={instagram} alt="instagram" />
-                        <RoundButton img={telegram} alt="telegram" />
-                        <RoundButton img={whatsApp} alt="whatsapp" />
+                    <div className={styles.right}>
+                        <div className={styles.socialNetwrok}>
+                            <RoundButton img={instagram} alt="instagram" />
+                            <RoundButton img={telegram} alt="telegram" />
+                            <RoundButton img={whatsApp} alt="whatsapp" />
+                        </div>
+                        <img src={alazar} alt="AlazarStudioLogo" />
                     </div>
-                    <img src={alazar} alt="AlazarStudioLogo" />
                 </div>
+
+                <div className={styles.bottomBox}>
+                    <p>Политика конфидециальности</p>
+                    <p>Пользовательское соглашение</p>
+                </div>
+
             </div>
 
-            <div className={styles.bottomBox}>
-                <p>Политика конфидециальности</p>
-                <p>Пользовательское соглашение</p>
-            </div>
         </footer>
     )
 }

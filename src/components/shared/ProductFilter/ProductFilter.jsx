@@ -8,7 +8,7 @@ export const ProductFilter = ({ name, type, listItems }) => {
             </div>
 
             {type === "color" ? (
-                <div className={styles.list} style={{ gap: '7px' }}>
+                <div className={styles.list}>
                     {
                         listItems.map((item, index) => {
                             return (

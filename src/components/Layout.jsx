@@ -1,22 +1,22 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import { Header } from "./widgets/Header/Header"
 import { Footer } from "./widgets/Footer/Footer"
 
 export const Layout = () => {
-    let mobile = (innerWidth >= 320 && innerWidth <= 450)
+    const mobile = (innerWidth >= 320 && innerWidth <= 450)
+    const location = useLocation().pathname
 
     return (
-        <div style={{
-            height: innerWidth === 1920 ? 'auto' : '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            overflowY: mobile === false ? 'hidden' : 'none'
-        }}>
+        <div className="layout">
             <Header />
-            <Outlet />
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: location === '/map' ? 'auto' : 'center',
+            }}>
+            </div>
+                <Outlet />
             <Footer />
-        </div>
+        </div >
     )
 }
-

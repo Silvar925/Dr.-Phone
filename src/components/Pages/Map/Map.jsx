@@ -28,7 +28,7 @@ export const Map = () => {
                     </div>
                 </div>
 
-                <Button name="Положить маршрут" style={{ height: '70px', width: '300px' }} />
+                <Button name="Найти" style={{ height: '70px', width: '300px' }} />
             </div>
 
             <div className={styles.contactContainerMobile}>

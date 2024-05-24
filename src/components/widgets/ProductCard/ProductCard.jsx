@@ -1,5 +1,5 @@
-import { Button } from "../../shared/Button/Button"
 import styles from "./ProductCard.module.css"
+import { Button } from "../../shared/Button/Button"
 
 export const ProductCard = ({ img, alt, name, price, url }) => {
     return (
