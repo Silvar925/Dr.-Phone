@@ -13,19 +13,17 @@ export const Router = () => {
         <BrowserRouter>
             <Routes >
                 <Route path="/" element={<Layout />}>
-                    <Route path="/" element={<WidthConatiner />}>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/serivce" element={<Service />} >
-                            <Route path=":products" element={<Products />} >
-                                <Route path=":product" element={<Product />} />
-                            </Route>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/serivce" element={<Service />} >
+                        <Route path=":products" element={<Products />} >
+                            <Route path=":product" element={<Product />} />
                         </Route>
                     </Route>
                     
                     <Route path="/basket" element={<Basket />} />
                     <Route path="/map" element={<Map />} />
-
                 </Route>
+
             </Routes>
         </BrowserRouter>
     )

@@ -9,13 +9,7 @@ export const Layout = () => {
     return (
         <div className="layout">
             <Header />
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: location === '/map' ? 'auto' : 'center',
-            }}>
-            </div>
-                <Outlet />
+            <Outlet />
             <Footer />
         </div >
     )

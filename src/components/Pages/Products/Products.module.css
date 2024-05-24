@@ -9,6 +9,11 @@
     gap: 40px;
 }
 
+.widthContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .row {
     display: flex;
     gap: 40px;
@@ -21,5 +26,9 @@
         gap: 16px;
         flex-direction: column;
         align-items: center;
+    }
+
+    .widthContainer {
+        padding: 0px 20px;
     }
 }

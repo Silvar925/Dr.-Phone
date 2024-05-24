@@ -16,7 +16,6 @@ import { Link } from "react-router-dom"
 export const Home = () => {
     let mobile = innerWidth >= 320 && innerWidth <= 450
 
-
     if (!mobile) {
         return (
             <main className={styles.container}>

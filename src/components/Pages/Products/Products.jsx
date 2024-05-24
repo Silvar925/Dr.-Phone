@@ -9,11 +9,14 @@ export const Products = () => {
 
     return (
         productList !== undefined ? (
-            <section className={styles.container}>
-                {productList.map((item, index) => (
-                    <ProductCard key={index} img={item.img} alt={item.alt} name={item.name} price={item.price} url={item.id} />
-                ))}
-            </section>
+            <div className={styles.widthContainer}>
+                <section className={styles.container}>
+                    {productList.map((item, index) => (
+                        <ProductCard key={index} img={item.img} alt={item.alt} name={item.name} price={item.price} url={item.id} />
+                    ))}
+                </section>
+
+            </div>
         ) : (
             <Outlet />
         )
