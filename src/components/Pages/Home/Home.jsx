@@ -11,6 +11,8 @@ import whatsApp from "../../../assets/socialNetworkIcon/whatsApp.svg"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import { Link } from "react-router-dom"
+
 export const Home = () => {
     let mobile = innerWidth >= 320 && innerWidth <= 450
 
@@ -21,7 +23,11 @@ export const Home = () => {
                 <ul className={styles.left}>
                     <li><p><span><img src="ProductImages/truck.svg" alt="truck" /></span><span>Доставка по России</span></p>
                     </li>
-                    <li><p><span><img src="ProductImages/monitor.svg" alt="handbag" /></span><span>Как нас найти</span></p>
+
+                    <li>
+                        <Link to="/map">
+                            <p><span><img src="ProductImages/monitor.svg" alt="handbag" /></span><span>Как нас найти ?</span></p>
+                        </Link>
                     </li>
                     <li><p><span><img src="ProductImages/call.svg" alt="call" /></span><span>89383499996</span></p></li>
                 </ul>

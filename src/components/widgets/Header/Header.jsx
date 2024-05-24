@@ -15,6 +15,7 @@ export const Header = () => {
     const location = useLocation().pathname
     const [isMenu, setIsMenu] = useState(false)
     const [click, setClick] = useState(false)
+    const menu = useRef(null)
 
     useEffect(() => {
         if (location === '/serivce') {
@@ -24,7 +25,6 @@ export const Header = () => {
         }
     }, [location]);
 
-    const menu = useRef(null)
 
     const clickHandle = () => {
         setIsMenu(!isMenu)
@@ -52,6 +52,20 @@ export const Header = () => {
             }
         }
     }
+
+    useEffect(() => {
+        const handleDocumentClick = (event) => {
+            if (menu.current && !menu.current.contains(event.target)) {
+                hideMenu()
+            }
+        };
+
+        document.addEventListener('click', handleDocumentClick);
+        return () => {
+            document.removeEventListener('click', handleDocumentClick);
+        };
+    }, []);
+
 
 
     return (

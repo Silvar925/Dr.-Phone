@@ -7,7 +7,7 @@ export const phones = [
         price: [124999, 85990],
 
         colors: ['rgb(0, 0, 0)', 'rgb(235, 221, 195)', 'rgb(241, 246, 249)', 'rgb(219, 241, 216)', 'rgb(244, 171, 182)'],
-        images: ['../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png'],
+        images: ['../../../../ProductImages/Border.png', '../../../../ProductImages/iphone.jpg', '../../../../ProductImages/iphone2.png', '../../../../ProductImages/ipneo3.webp', '../../../../ProductImages/Border.png', '../../../../ProductImages/Border.png'],
         SIM: ['SIM + SIM', 'ESIM + SIM', 'ESIM ONLY'],
         memory: ['128Gb', '256Gb', '512Gb']
     },
