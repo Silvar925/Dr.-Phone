@@ -1,231 +1,56 @@
-.container {
+.layout {
     display: flex;
-    padding-left: 86px;
-    padding-right: 86px;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.mainContainer {
+    display: flex;
+    height: 100%;
+    gap: 45px;
+}
+
+.leftContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.middleContainer {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
     justify-content: space-between;
-    position: relative;
 }
 
-.left {
+.rightContainer {
+    width: 100%;
     display: flex;
-    gap: 44px;
-    width: 261px;
-    flex-direction: column;
-}
-
-.left li {
-    cursor: pointer;
-}
-
-.left p {
-    display: flex;
-    gap: 24px;
-
-    color: white;
-    font-size: 24px;
-    font-family: 'Montserrat';
-    font-weight: 400;
-}
-
-.right {
     gap: 16px;
-    width: 261px;
-    display: flex;
-    flex-direction: column;
-}
-
-.middle {
-    display: flex;
-    gap: 52px;
     flex-direction: column;
     align-items: center;
-    /* position: relative; */
-
-    --drop-gap: 30px;
-    --drop-height: 100px;
+    justify-content: center;
 }
 
-.topBox {
+.logoContainer {
+    position: relative;
     display: flex;
-    gap: 110px;
+    flex-direction: column;
     align-items: center;
-}
-
-.topBox ul {
-    display: flex;
-    gap: 67px;
-}
-
-.swiperBox {
-    width: 800px;
 }
 
 .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    position: relative;
-}
-
-.logoIMG {
+    position: absolute;
     z-index: 2;
-    animation-name: bounce;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
+    height: 345px;
+    bottom: 110px;
 }
 
-.rounded {
-    width: 940px;
-    height: 217px;
+.round {
+    height: 180px;
+    bottom: 38px;
     position: absolute;
-    bottom: -30px;
-}
-
-.logoShadow {
-    --base-shadow-width: 267px;
-    --base-shadow-height: 53px;
-
-    width: var(--base-shadow-width);
-    height: var(--base-shadow-height);
-
-    filter: blur(50px);
-    background: black;
-
-    animation-name: bounceShadow;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(-3px);
-    }
-
-    100% {
-        transform: translateY(-23px);
-    }
-}
-
-@keyframes bounceShadow {
-    0% {
-        width: var(--base-shadow-width);
-        height: var(--base-shadow-height);
-    }
-
-    100% {
-        width: 280px;
-        height: 53px;
-    }
-}
-
-.dumai {
-    background-color: #1A77C6;
-    height: 100px;
-    width: 5px;
-    height: 200px;
-
-    animation: glow 1.5s infinite alternate;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(0, 255, 255, 1);
-    }
-
-    100% {
-        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-    }
-}
-
-@keyframes drop {
-    0% {
-        /* transition: border-radius .3s cubic-bezier(.2, 0, 0, 1), background-color .3s cubic-bezier(.2, 0, 0, 1); */
-        transform: translateY(-100px);
-    }
-
-    100% {
-        transform: translateY(calc(100vh + 100px));
-    }
-}
-
-.leftAnimation {
-    display: flex;
-    flex-direction: column;
-    gap: 873px;
-
-    position: absolute;
-    top: 0;
-    left: 520px;
-    animation-name: drop;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    /* animation-direction: reverse; */
-}
-
-.rightAnimation {
-    position: absolute;
-    top: 0;
-    right: 520px;
-    animation-name: drop;
-    animation-duration: 8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: reverse;
-}
-
-@media (min-width: 320px) and (max-width: 435px) {
-    .container {
-        padding: 0px;
-        flex-direction: column;
-    }
-
-    .container ul {
-        padding-top: 50px;
-        gap: 44px;
-    }
-
-    .container ul li {
-        text-align: left;
-    }
-
-    .container ul li p {
-        font-size: 20px;
-    }
-
-    .logo {
-        width: 100%;
-    }
-
-    .rounded {
-        height: 160px;
-        width: 90%;
-    }
-
-    .logoIMG {
-        width: 100%;
-        height: 200px;
-    }
-
-    .left {
-        width: 100%;
-        align-items: center;
-    }
-
-    .list {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-    }
+    z-index: 1;
 }

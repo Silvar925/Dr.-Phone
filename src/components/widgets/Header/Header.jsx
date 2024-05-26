@@ -16,7 +16,9 @@ export const Header = () => {
 
     const [isMenu, setIsMenu] = useState(false)
     const [click, setClick] = useState(false)
-    const menu = useRef(null)
+
+    const btnDropDown = useRef(null)
+    const menuImage = useRef(null)
 
     useEffect(() => {
         if (location === '/serivce') {
@@ -29,9 +31,9 @@ export const Header = () => {
 
     const clickHandle = () => {
         setIsMenu(!isMenu)
-        if (menu.current !== null) {
-            menu.current.style.transition = "opacity 1s";
-            menu.current.style.opacity = click ? 0 : 1;
+        if (btnDropDown.current !== null) {
+            btnDropDown.current.style.transition = "opacity 1s";
+            btnDropDown.current.style.opacity = click ? 0 : 1;
         }
     }
 
@@ -56,9 +58,10 @@ export const Header = () => {
 
     useEffect(() => {
         const handleDocumentClick = (event) => {
-            // if (menu.current && !menu.current.contains(event.target)) {
-            //     hideMenu()
-            // }
+            if (event.target.id !== 'btnDropDownImages' && event.target.id !== "btnDropDown") {
+                hideMenu();
+            }
+            
         };
 
         document.addEventListener('click', handleDocumentClick);
@@ -103,12 +106,16 @@ export const Header = () => {
                 <Сorners
                     style={{ height: '100%', width: '136px', borderRadius: '0px 0px 0px 127px' }}
                     img={menuBurgerIcon}
-                    onClick={() => clickHandle()} className={styles.corners} />
+                    onClick={() => clickHandle()} className={styles.corners}
+                    forwardRef={btnDropDown}
+                    id = "btnDropDown"
+                    idImages = "btnDropDownImages"
+                />
             </div>
 
             {
                 isMenu === true &&
-                <ul className={styles.menu} ref={menu}>
+                <ul className={styles.menu}>
                     <li><Link to="/serivce/phones" onClick={hideMenu}>ТЕЛЕФОНЫ</Link></li>
                     <li><Link to="/serivce/phones" onClick={hideMenu}>АКСЕССУАРЫ</Link></li>
                     <li><Link to="/serivce/phones" onClick={hideMenu}>БУ УСТРОЙСТВА</Link></li>

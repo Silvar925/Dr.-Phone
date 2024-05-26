@@ -1,0 +1,9 @@
+.swiperContainer {
+    display: flex;
+    gap: 74px;
+    align-items: center;
+}
+
+.temp {
+    width: 800px;
+}

@@ -18,8 +18,7 @@
 }
 
 .colorParent {
-    /* height: 33px; */
-    /* width: 33px; */
+    border: 2px solid var(--main-color);
     border-radius: 50%;
 
     &:hover {

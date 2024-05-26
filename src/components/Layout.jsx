@@ -7,7 +7,7 @@ export const Layout = () => {
     const location = useLocation().pathname
 
     return (
-        <div className="layout">
+        <div className="layout" id="layout">
             <Header />
             <Outlet />
             <Footer />
