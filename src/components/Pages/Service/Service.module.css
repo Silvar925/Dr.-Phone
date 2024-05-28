@@ -1,3 +1,10 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .mainContainer {
     display: flex;
     justify-content: center;
@@ -16,14 +23,10 @@
 }
 
 .box ul {
-    width: 100%;
+    /* width: 100%; */
     gap: 47px;
     display: flex;
     justify-content: center;
-}
-
-.box ul li {
-    flex: 1;
 }
 
 .second {
@@ -31,7 +34,12 @@
 }
 
 @media (min-width: 320px) and (max-width: 435px) {
-    .temp {
+    .box ul {
         flex-direction: column;
     }
+
+    .second {
+        width: auto;
+    }
+
 }

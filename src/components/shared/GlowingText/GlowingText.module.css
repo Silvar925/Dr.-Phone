@@ -1,6 +1,21 @@
 .glowingText {
+    display: flex;
+    gap: 24px;
     color: rgb(255, 255, 255);
     font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 400;
+    cursor: pointer;
+
+
+}
+
+.glowingText p,
+.glowingText img {
+  transition: text-shadow 0.3s ease;
+}
+
+.glowingText:hover p,
+.glowingText:hover img {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }

@@ -6,6 +6,13 @@ import { RoundButton } from "../../shared/RoundButton/RoundButton"
 import { Header } from "../../widgets/Header/Header"
 import { Footer } from "../../widgets/Footer/Footer"
 
+import instagram from "../../../assets/socialNetworkIcon/instagram.svg"
+import telegram from "../../../assets/socialNetworkIcon/telegram.svg"
+import whatsApp from "../../../assets/socialNetworkIcon/whatsApp.svg"
+
+import truck from "../../../assets/interfaceIcons/truck.svg"
+import monitor from "../../../assets/interfaceIcons/monitor.svg"
+import phone from "../../../assets/interfaceIcons/phone.svg"
 
 
 export const Home = () => {
@@ -15,9 +22,9 @@ export const Home = () => {
             <main className={styles.mainContainer}>
                 <div className={styles.leftContainer}>
                     <ul>
-                        <li><GlowingText text="Доставка по России" /></li>
-                        <li><GlowingText text="Как нас найти" /></li>
-                        <li><GlowingText text="89383499996" /></li>
+                        <li><GlowingText text="Доставка по России" img={truck}/></li>
+                        <li><GlowingText text="Как нас найти" img={monitor}/></li>
+                        <li><GlowingText text="89383499996" img={phone}/></li>
                     </ul>
 
                 </div>
@@ -26,16 +33,27 @@ export const Home = () => {
                     <SwiperContainer />
 
                     <div className={styles.logoContainer}>
-                        <img src="RedLogo.svg" alt="drphone" className={styles.logo}/>
-                        <img src="rounded.svg" alt="" className={styles.round}/>
-                    </div>
+                        <div className={styles.animationBox}>
+                            <div className={styles.leftAnimation}>
+                                <div className={styles.dumai} />
+                                {/* <div className={styles.dumai} /> */}
+                            </div>
 
+                            <div className={styles.rightAnimation}>
+                                <div className={styles.dumai} />
+                                {/* <div className={styles.dumai} /> */}
+                            </div>
+                        </div>
+
+                        <img src="RedLogo.svg" alt="drphone" className={styles.logo} />
+                        <img src="rounded.svg" alt="" className={styles.round} />
+                    </div>
                 </div>
 
                 <div className={styles.rightContainer}>
-                    <RoundButton />
-                    <RoundButton />
-                    <RoundButton />
+                    <RoundButton img={whatsApp} />
+                    <RoundButton img={instagram} />
+                    <RoundButton img={telegram} />
                 </div>
             </main>
 

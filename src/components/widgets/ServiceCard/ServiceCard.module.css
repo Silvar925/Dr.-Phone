@@ -16,9 +16,20 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 17px;
+}
 
+.card:hover {
+    background: linear-gradient(180deg, rgba(237, 58, 134, 0) 0%, rgba(237, 58, 134, 0.5) 100%);
+}
+
+.cardDefault {
     width: 194px;
     height: 190px;
+}
+
+.cardActive {
+    width: 224px;
+    height: 220px;
 }
 
 .card img {

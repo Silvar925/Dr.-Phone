@@ -18,6 +18,12 @@
     align-items: center;
 }
 
+.leftContainer ul {
+    display: flex;
+    gap: 45px;
+    flex-direction: column;
+}
+
 .middleContainer {
     display: flex;
     height: 100%;
@@ -44,13 +50,13 @@
 .logo {
     position: absolute;
     z-index: 2;
-    height: 345px;
+    height: 266px;
     bottom: 110px;
 }
 
 .round {
     height: 180px;
-    bottom: 38px;
+    bottom: 20px;
     position: absolute;
     z-index: 1;
 }

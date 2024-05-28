@@ -1,3 +1,9 @@
+.layout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
 .container {
     margin: 80px 0px;
 

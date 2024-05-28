@@ -6,6 +6,13 @@
     align-items: center;
 }
 
+
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .contactContainerMobile {
     display: none;
 }
