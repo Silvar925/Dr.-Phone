@@ -97,15 +97,15 @@ export const phones = [
     }
 ]
 
-// async function fetchData(url) {
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//         throw new Error(`Ошибка получения данных с сервера: ${response.status}`);
-//     }
-//     return response.json();
-// }
+async function fetchData(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Ошибка получения данных с сервера: ${response.status}`);
+    }
+    return response.json();
+}
 
-// export const NewPhoneList = await fetchData('api/v1/ProductAPIView')
+export const NewPhoneList = await fetchData('http://127.0.0.1:8000/api/v1/ProductAPIView')
 
 
 export const deviceProtection = [
