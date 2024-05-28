@@ -134,6 +134,7 @@ export const Header = () => {
 const dictionary = {
     '/serivce': 'УСЛУГИ И ТОВАРЫ',
     '/map': 'КАК НАС НАЙТИ',
+    '/repair': 'РЕМОНТ ТЕЛЕФОНОВ',
 
     '/serivce/phones': 'ТЕЛЕФОНЫ',
     '/serivce/allDevices': 'ВСЕ УСТРОЙСТВА',

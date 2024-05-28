@@ -4,6 +4,8 @@ import { Outlet, useLocation } from "react-router-dom"
 import { phones } from "../../data"
 import { Header } from "../../widgets/Header/Header"
 import { Footer } from "../../widgets/Footer/Footer"
+// import { NewPhoneList } from "../../data"
+
 
 export const Products = () => {
     const location = useLocation().pathname;
@@ -27,6 +29,7 @@ export const Products = () => {
         )
     );
 }
+
 
 const dictionary = {
     '/serivce/phones': phones,

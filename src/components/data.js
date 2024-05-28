@@ -97,6 +97,16 @@ export const phones = [
     }
 ]
 
+// async function fetchData(url) {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//         throw new Error(`Ошибка получения данных с сервера: ${response.status}`);
+//     }
+//     return response.json();
+// }
+
+// export const NewPhoneList = await fetchData('api/v1/ProductAPIView')
+
 
 export const deviceProtection = [
     {

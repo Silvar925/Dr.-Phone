@@ -45,6 +45,9 @@ export const Product = () => {
 
     let mobile = (window.innerWidth >= 320 && window.innerWidth <= 435)
 
+    // --------------
+
+
     return (
         <div>
             <Header />
