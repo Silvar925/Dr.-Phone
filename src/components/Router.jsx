@@ -7,6 +7,8 @@ import { Products } from "./Pages/Products/Products"
 import { Product } from "./Pages/Product/Product"
 import { Basket } from "./Pages/Basket/Basket"
 import { WidthConatiner } from "./WidthConatiner"
+import { DeviceProtection } from "./Pages/DeviceProtection/DeviceProtection"
+import { Repair } from "./Pages/Repair/Repair"
 
 export const Router = () => {
     return (
@@ -21,6 +23,8 @@ export const Router = () => {
 
                 <Route path="/basket" element={<Basket />} />
                 <Route path="/map" element={<Map />} />
+                <Route path="/deviceProtection" element={<DeviceProtection />} />
+                <Route path="/repair" element={<Repair />} />
             </Routes>
         </BrowserRouter>
     )

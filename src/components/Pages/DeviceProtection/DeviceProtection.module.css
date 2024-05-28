@@ -1,0 +1,81 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.deviceProtectionContainer {
+    margin: 80px 0px;
+    width: 1300px;
+    display: flex;
+    gap: 120px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deviceProtectionContainer ul {
+    width: 1000px;
+    display: flex;
+    gap: 48px;
+}
+
+
+.deviceProtectionContainer ul li {
+    flex: 1;
+}
+
+.deviceProtectionContainerBottom ul {
+    display: grid;
+    row-gap: 80px;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+}
+
+.deviceProtectionContainerBottom ul li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.deviceProtectionContainerBottom ul li h3 {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 48px;
+}
+
+.deviceProtectionContainerBottom ul li p {
+    font-family: 'Montserrat';
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+@media (min-width: 320px) and (max-width: 435px) {
+    .deviceProtectionContainer {
+        width: 100%;
+        gap: 80px;
+        padding: 0px 20px;
+        margin: 30px 0px;
+    }
+
+    .deviceProtectionContainer ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .deviceProtectionContainerBottom ul {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .bannerImages img {
+        width: 100%;
+    }
+}

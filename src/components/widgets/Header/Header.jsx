@@ -141,4 +141,5 @@ const dictionary = {
     '/serivce/deviceProtection': 'ЗАЩИТА УСТРОЙСТВА',
     '/serivce/iMac': 'iMAC',
     '/serivce/covers': 'Чехлы',
+    '/deviceProtection': 'ЗАЩИТА УСТРОЙСТВА 360'
 }

@@ -2,7 +2,7 @@ import styles from "./Basket.module.css"
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { BasketCard } from "../../widgets/BasketCard/BasketCard"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
-import { baskesList, phones } from "../../data"
+import { phones } from "../../data"
 import { Header } from "../../widgets/Header/Header"
 import { Footer } from "../../widgets/Footer/Footer"
 
