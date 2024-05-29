@@ -105,9 +105,6 @@ async function fetchData(url) {
     return response.json();
 }
 
-export const NewPhoneList = await fetchData('http://127.0.0.1:8000/api/v1/ProductAPIView')
-
-
 export const deviceProtection = [
     {
         num: '01',
@@ -177,3 +174,12 @@ export const priceList = [
         price: '2000'
     }
 ]
+
+
+export const NewDevicesList = await fetchData('http://127.0.0.1:8000/api/v1/NewDevicesAPIView')
+export const ImagesProductList = await fetchData('http://127.0.0.1:8000/api/v1/ImagesProductAPIView')
+export const UsedDevicesList = await fetchData('http://127.0.0.1:8000/api/v1/UsedDevicesAPIView')
+export const AccessoriesList = await fetchData('http://127.0.0.1:8000/api/v1/AccessoriesAPIView')
+export const CoversList = await fetchData('http://127.0.0.1:8000/api/v1/CoversAPIView')
+// export const IMacList = await fetchData('http://127.0.0.1:8000/api/v1/IMacAPIView')
+export const ColorProductList = await fetchData('http://127.0.0.1:8000/api/v1/ColorProductAPIView')

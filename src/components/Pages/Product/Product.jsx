@@ -3,11 +3,15 @@ import styles from "./Product.module.css"
 import { Link, useLocation } from "react-router-dom"
 import { ProductFilter } from "../../shared/ProductFilter/ProductFilter"
 import { getStringFromRight } from "../../helpers"
-import { phones } from "../../data"
+
+import { NewDevicesList, ColorProductList } from "../../data"
+
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { Button } from "../../shared/Button/Button"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
 import { ArrowButton } from "../../shared/ArrowButton/ArrowButton"
+
+import { getColorProduct } from '../../helpers';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -25,11 +29,14 @@ export const Product = () => {
 
     let product;
 
-    for (let phone in phones) {
-        if (producetID === phones[phone].id) {
-            product = phones[phone]
+
+    for (let key in NewDevicesList) {
+        if (NewDevicesList[key].unique_id === producetID) {
+            product = NewDevicesList[key]
         }
     }
+
+    getColorProduct(product.color, ColorProductList)
 
     const [clickImages, setClickImages] = useState(false)
     const [img, setImg] = useState(null)
@@ -103,7 +110,7 @@ export const Product = () => {
 
                                         <div className={styles.carousel}>
                                             {
-                                                phones.map((item, index) => {
+                                                NewDevicesList.map((item, index) => {
                                                     console.log(item)
                                                     return (
                                                         <div key={item.id} className={styles.carouselDote} />
@@ -117,16 +124,16 @@ export const Product = () => {
                                         </header>
                                     </div>
                                 ) : (
-                                    <img src={img === null ? product.img : img} alt={product.alt} />
+                                    <img src={img === null ? product.images : img} />
                                 )
                             }
 
 
 
                             <div className={styles.filterList}>
-                                <ProductFilter name="Цвета" type="color" listItems={product.colors} />
-                                <ProductFilter name="Объем встроенной памяти" listItems={product.memory} />
-                                <ProductFilter name="SIM-карта" listItems={product.SIM} />
+                                <ProductFilter name="Цвета" type="color" listItems={['']} />
+                                <ProductFilter name="Объем встроенной памяти" listItems={['128Gb','256Gb','512Gb','1024Gb']} />
+                                <ProductFilter name="SIM-карта" listItems={['asd', 'asd']} />
                             </div>
                         </div>
 

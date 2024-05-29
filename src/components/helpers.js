@@ -15,3 +15,28 @@ export const removeUntilFirstSlash = (str) => {
         return str; // Если "/" не найден, возвращаем исходную строку
     }
 }
+
+export const getImagesProduct = (imagesList, idImage) => {
+    for (let img of imagesList) {
+        if (img.id === idImage) {
+            return img.photo
+        }
+    }
+}
+
+export const getColorProduct = (colorIdList, colorList) => {
+    let array = []
+
+    for (let colorID in colorIdList) {
+        for (let color in colorList) {
+            if (colorIdList[colorID] === colorList[color]) {
+                // array.push(colorList[color].codeColor)
+                console.log(colorList[color].codeColor)
+            } else {
+                console.log(colorIdList[color])
+            }
+        }
+    }
+    
+    // return array
+}
