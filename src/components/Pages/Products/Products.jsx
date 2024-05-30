@@ -5,7 +5,7 @@ import { phones } from "../../data"
 import { Header } from "../../widgets/Header/Header"
 import { Footer } from "../../widgets/Footer/Footer"
 import { NewDevicesList, ImagesProductList } from "../../data"
-import { getImagesProduct } from "../../helpers"
+import { getImageProduct } from "../../helpers"
 
 
 export const Products = () => {
@@ -20,7 +20,7 @@ export const Products = () => {
                     <section className={styles.container}>
                         {productList.map((item, index) => (
                             console.log(item),
-                            <ProductCard key={item.unique_id} img={getImagesProduct(ImagesProductList, item.images[0])} 
+                            <ProductCard key={item.unique_id} img={getImageProduct(ImagesProductList, item.images[0])} 
                             name={item.name} price={item.price} url={item.unique_id} />
                         ))}
                     </section>

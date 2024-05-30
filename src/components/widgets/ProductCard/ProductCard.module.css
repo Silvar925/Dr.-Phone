@@ -1,8 +1,12 @@
 .card {
     display: flex;
-    /* width: 100%; */
     flex-direction: column;
     border: 1px solid white;
+}
+
+.card img {
+    height: 297px;
+    object-fit: cover;
 }
 
 .cardInfo {

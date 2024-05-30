@@ -4,14 +4,14 @@ import { Link, useLocation } from "react-router-dom"
 import { ProductFilter } from "../../shared/ProductFilter/ProductFilter"
 import { getStringFromRight } from "../../helpers"
 
-import { NewDevicesList, ColorProductList } from "../../data"
+import { NewDevicesList as list, ColorProductList, ImagesProductList, NewDevicesList } from "../../data"
 
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { Button } from "../../shared/Button/Button"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
 import { ArrowButton } from "../../shared/ArrowButton/ArrowButton"
 
-import { getColorProduct } from '../../helpers';
+import { getColorProduct, getArrayImageProduct, getProduchWithList, getColor } from '../../helpers';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -22,37 +22,42 @@ import { Footer } from '../../widgets/Footer/Footer';
 import btnBack from "../../../assets/btnBack.svg"
 
 export const Product = () => {
+    let mobile = (window.innerWidth >= 320 && window.innerWidth <= 435)
     const [swiper, setSwiper] = React.useState(null);
+
 
     const location = useLocation().pathname
     let producetID = getStringFromRight(location)
 
-    let product;
 
+    let product = getProduchWithList(producetID, NewDevicesList)
 
-    for (let key in NewDevicesList) {
-        if (NewDevicesList[key].unique_id === producetID) {
-            product = NewDevicesList[key]
-        }
-    }
-
-    getColorProduct(product.color, ColorProductList)
 
     const [clickImages, setClickImages] = useState(false)
     const [img, setImg] = useState(null)
+
 
     const clickSlideHandel = (item) => {
         setImg(item)
         setClickImages(!clickImages)
     }
 
+
     const addProductInBasket = (product) => {
         baskesList.push(product)
     }
 
-    let mobile = (window.innerWidth >= 320 && window.innerWidth <= 435)
 
-    // --------------
+    let productImageList = getArrayImageProduct(product.images, ImagesProductList)
+
+    //Работа с фильтром
+    let colorProduct = getColor(product.color, ColorProductList)
+
+    const [productColor, setProductColor] = useState(colorProduct)
+    const [productMemory, setProductMempry] = useState(product.memory)
+    const [productSIM, setProductSIM] = useState(product.sim)
+
+    // console.log('product', product.sim)
 
 
     return (
@@ -110,7 +115,7 @@ export const Product = () => {
 
                                         <div className={styles.carousel}>
                                             {
-                                                NewDevicesList.map((item, index) => {
+                                                list.map((item, index) => {
                                                     console.log(item)
                                                     return (
                                                         <div key={item.id} className={styles.carouselDote} />
@@ -124,16 +129,20 @@ export const Product = () => {
                                         </header>
                                     </div>
                                 ) : (
-                                    <img src={img === null ? product.images : img} />
+                                    <img src={img === null ? productImageList[0] : img} />
                                 )
                             }
 
-
-
                             <div className={styles.filterList}>
-                                <ProductFilter name="Цвета" type="color" listItems={['']} />
-                                <ProductFilter name="Объем встроенной памяти" listItems={['128Gb','256Gb','512Gb','1024Gb']} />
-                                <ProductFilter name="SIM-карта" listItems={['asd', 'asd']} />
+                                <ProductFilter name="Цвета" type="color" listItems={getColorProduct(product.allColors, ColorProductList)}
+                                    activeColor={productColor}
+                                />
+                                <ProductFilter name="Объем встроенной памяти" listItems={['128Gb', '256Gb', '512Gb', '1024Gb']}
+                                    activeTag={productMemory}
+                                />
+                                <ProductFilter name="SIM-карта" listItems={['SIM+SIM', 'ESIM+SIM', 'ESIM ONLY']}
+                                    activeTag={productSIM}
+                                />
                             </div>
                         </div>
 
@@ -153,7 +162,7 @@ export const Product = () => {
                                 >
 
                                     {
-                                        product.images.map((item, index) => {
+                                        productImageList.map((item, index) => {
                                             return (
                                                 <SwiperSlide key={index}
                                                     onClick={() => clickSlideHandel(item)} className={styles.slide}
@@ -174,8 +183,21 @@ export const Product = () => {
                     <div className={styles.right}>
                         <WhiteBox className={styles.whiteCard}>
                             <div className={styles.priceBox}>
-                                <p style={{ fontSize: '16px', color: 'gray', textDecorationLine: 'line-through' }}>{product.price[0]}</p>
-                                <p style={{ fontSize: '24px' }}>{product.price[1]}₽</p>
+
+                                {
+                                    product.discountedPrice !== null ? (
+                                        <div>
+                                            <p style={{ fontSize: '16px', color: 'gray', textDecorationLine: 'line-through' }}>{product.price}</p>
+                                            <p style={{ fontSize: '24px' }}>{product.discountedPrice}₽</p>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <p style={{ fontSize: '24px' }}>{product.price}₽</p>
+                                        </div>
+                                    )
+                                }
+
+
                             </div>
 
                             <Button name="В корзину" style={{ textAlign: 'center' }} onClick={() => addProductInBasket(product)} />

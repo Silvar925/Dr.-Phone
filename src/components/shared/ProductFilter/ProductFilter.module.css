@@ -49,9 +49,10 @@
     cursor: pointer;
     border: 2px solid white;
 
-    &:hover {
-        border: 2px solid rgb(237, 58, 134);
-    }
+}
+
+.tag:hover {
+    border: 2px solid rgb(237, 58, 134);
 }
 
 @media (min-width: 320px) and (max-width: 435px) {
