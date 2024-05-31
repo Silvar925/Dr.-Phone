@@ -28,6 +28,15 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
     }
 
 
+    const pressedMemory = () => {
+
+    }
+
+    
+    const pressedSIM = () => {
+        
+    }
+
 
     return (
         <div className={styles.container}>
