@@ -176,10 +176,18 @@ export const priceList = [
 ]
 
 
-export const NewDevicesList = await fetchData('http://127.0.0.1:8000/api/v1/NewDevicesAPIView')
-export const ImagesProductList = await fetchData('http://127.0.0.1:8000/api/v1/ImagesProductAPIView')
-export const UsedDevicesList = await fetchData('http://127.0.0.1:8000/api/v1/UsedDevicesAPIView')
-export const AccessoriesList = await fetchData('http://127.0.0.1:8000/api/v1/AccessoriesAPIView')
-export const CoversList = await fetchData('http://127.0.0.1:8000/api/v1/CoversAPIView')
-// export const IMacList = await fetchData('http://127.0.0.1:8000/api/v1/IMacAPIView')
-export const ColorProductList = await fetchData('http://127.0.0.1:8000/api/v1/ColorProductAPIView')
+// Core
+export const PhonesList = await fetchData('http://127.0.0.1:8000/api/Core/PhonesAPIView')
+export const PhonesOptions = await fetchData('http://127.0.0.1:8000/api/Core/PhonesOptionsAPIView')
+export const AccessoriesList = await fetchData('http://127.0.0.1:8000/api/Core/AccessoriesAPIView')
+export const AccessoriesOptionsList = await fetchData('http://127.0.0.1:8000/api/Core/AccessoriesOptionsAPIView')
+export const CoversList = await fetchData('http://127.0.0.1:8000/api/Core/CoversAPIView')
+export const IMacList = await fetchData('http://127.0.0.1:8000/api/Core/IMacAPIView')
+export const IMacOptionsList = await fetchData('http://127.0.0.1:8000/api/Core/IMacOptionsAPIView')
+
+// BaseSetting
+export const ImagesProductList = await fetchData('http://127.0.0.1:8000/api/BaseSettings/ImagesProductAPIView')
+export const ColorProductList = await fetchData('http://127.0.0.1:8000/api/BaseSettings/ColorProductAPIView')
+export const MemoryProductsList = await fetchData('http://127.0.0.1:8000/api/BaseSettings/MemoryProductsAPIView')
+export const SIMProductList = await fetchData('http://127.0.0.1:8000/api/BaseSettings/SIMProductAPIView')
+export const ManufacturerAPIView = await fetchData('http://127.0.0.1:8000/api/BaseSettings/ManufacturerAPIView')

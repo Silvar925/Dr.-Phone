@@ -2,12 +2,16 @@ import styles from "./GetProduct.module.css"
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 
 
+import blackHandbag from "../../../assets/blackHandbag.svg"
+import blackTruck from "../../../assets/blackTruck.svg"
+import arrow from "../../../assets/arrowGetPr.svg"
+
 export const GetProduct = () => {
     return (
         <WhiteBox className={styles.container}>
             <div className={styles.card}>
                 <div className={styles.cardLeft}>
-                    <img src="../../../../public/ProductImages/truck.svg" alt="#" />
+                    <img src={blackTruck} alt="#" />
 
                     <div className={styles.cardText}>
                         <p>Доставка по России</p>
@@ -15,7 +19,7 @@ export const GetProduct = () => {
                     </div>
                 </div>
 
-                <img className={styles.arrow} src="../../../../public/ProductImages/coolicon.svg" alt="" />
+                <img className={styles.arrow} src={arrow} alt="#" />
 
             </div>
 
@@ -23,7 +27,7 @@ export const GetProduct = () => {
 
             <div className={styles.card}>
                 <div className={styles.cardLeft}>
-                    <img src="../../../../public/ProductImages/truck.svg" alt="#" />
+                    <img src={blackHandbag} alt="#" />
 
                     <div className={styles.cardText}>
                         <p>Самовывоз</p>
@@ -31,7 +35,7 @@ export const GetProduct = () => {
                     </div>
                 </div>
 
-                <img className={styles.arrow} src="../../../../public/ProductImages/coolicon.svg" alt="" />
+                <img className={styles.arrow} src={arrow} alt="#" />
 
             </div>
         </WhiteBox>

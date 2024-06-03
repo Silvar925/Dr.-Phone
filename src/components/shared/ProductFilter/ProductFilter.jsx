@@ -1,41 +1,73 @@
 import styles from "./ProductFilter.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { removeUntilFirstSlash, slugify } from "../../helpers"
-import { getKeyColor, extractWordBeforeDash } from "../../helpers";
-import { ColorProductList } from "../../data";
+import { getKeyColor, extractWordBeforeDash, generateCombinations, temp, getStringFromRight, getProduchWithList, getPhoneIdWithPhoneOption } from "../../helpers";
+import { ColorProductList, PhonesList, PhonesOptions, MemoryProductsList, SIMProductList } from "../../data";
+import { useState } from "react";
 
 
 export const ProductFilter = ({ name, type, listItems, onClick, activeColor, activeTag }) => {
     const url = useLocation().pathname
     const navigate = useNavigate();
 
+    let activeUrl = extractWordBeforeDash(url)
+
     const pressedColor = (color) => {
+        let partActiveUrl = url.split("/")
         let temp = getKeyColor(color, ColorProductList)
 
-        let activeUrl = extractWordBeforeDash(url)
-        const uniqueSlug = slugify(temp);
+        const capitalizeFirstLetter = (string) => {
+            if (!string) return string; // проверка на пустую строку
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+
+        const uniqueSlug = slugify(temp)
 
         let partUrl = activeUrl.split("-")
-        partUrl[partUrl.length - 1] = uniqueSlug
+        partUrl[3] = capitalizeFirstLetter(uniqueSlug)
 
         let colorUrl = partUrl.join('-')
 
-        let partActiveUrl = url.split("/")
-        partActiveUrl[partActiveUrl.length - 1] = colorUrl
+        partActiveUrl[3] = colorUrl
 
         let newUrlSUKA = partActiveUrl.join('/')
         navigate(newUrlSUKA);
     }
 
 
-    const pressedMemory = () => {
+    const pressedMemory = (memory) => {
+        let partActiveUrl = url.split("/")
 
+        let partEndUrl = partActiveUrl[3].split("-")
+        console.log('До: ', partEndUrl)
+        partEndUrl[3] = memory
+
+        let newUrlpartEndUrl = partEndUrl.join('-')
+
+        partActiveUrl[partActiveUrl.length - 1] = newUrlpartEndUrl
+
+        let newUrl = partActiveUrl.join("/")
+
+        console.log
+
+        // navigate(newUrl)
     }
 
-    
+
     const pressedSIM = () => {
-        
+        console.log(123)
     }
+
+
+    const location = useLocation().pathname
+    let producetID = getStringFromRight(location)
+
+    let product = getProduchWithList(producetID, PhonesOptions)
+    let phoneParent = getPhoneIdWithPhoneOption(product.phone, PhonesList)
+
+
+    temp(phoneParent, PhonesOptions, ColorProductList, MemoryProductsList, SIMProductList)
 
 
     return (
@@ -64,7 +96,13 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
                     {
                         listItems.map((item, index) => {
                             return (
-                                <div className={styles.tag} key={`tag${item}`}
+                                <div className={styles.tag} key={`tag${item}`} onClick={() => {
+                                    if (type === "memory") {
+                                        pressedMemory(item);
+                                    } else if (type === "sim") {
+                                        pressedSIM(item);
+                                    }
+                                }}
                                     style={{
                                         border: item === activeTag ? '2px solid aqua' : 'none'
                                     }}>

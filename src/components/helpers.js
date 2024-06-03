@@ -14,18 +14,18 @@ export const getProduchWithList = (id, list) => {
 
 export const removeUntilFirstSlash = (str) => {
     const lastSlashIndex = str.lastIndexOf('/');
-    
+
     if (lastSlashIndex !== -1) {
         return str.substring(0, lastSlashIndex);
     } else {
-        return str; 
+        return str;
     }
 }
 
 export const getImageProduct = (imagesList, idImage) => {
     for (let img of imagesList) {
         if (img.id === idImage) {
-            return img.photo
+            return img.image
         }
     }
 }
@@ -45,13 +45,43 @@ export const getColorProduct = (colorIdList, colorList) => {
 }
 
 
+export const getMemoryProduct = (memoryIdList, memoryList) => {
+    let array = []
+
+    for (let memoryId of memoryIdList) {
+        for (let memory of memoryList) {
+            if (memoryId === memory.id) {
+                array.push(memory.size)
+            }
+        }
+    }
+
+    return array;
+}
+
+
+export const getSIMProduct = (SIMIdList, SIMList) => {
+    let array = [];
+
+    for (let SIMId of SIMIdList) {
+        for (let SIM of SIMList) {
+            if (SIMId === SIM.id) {
+                array.push(SIM.type)
+            }
+        }
+    }
+
+    return array;
+
+}
+
 export const getArrayImageProduct = (imagesIdList, imagesList) => {
     let array = []
-    
+
     for (let imageID in imagesIdList) {
         for (let image in imagesList) {
             if (imagesList[image].id === imagesIdList[imageID]) {
-                array.push(imagesList[image].photo)
+                array.push(imagesList[image].image)
             }
         }
     }
@@ -78,7 +108,7 @@ export const getKeyColor = (colorSearch, colorList) => {
 
 export const extractWordBeforeDash = (url) => {
     let word = url.split("/")
-    let color = word[word.length-1]
+    let color = word[word.length - 1]
     return color
 }
 
@@ -86,7 +116,7 @@ export const extractWordBeforeDash = (url) => {
 export function slugify(text) {
     const cyrillicMap = {
         'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
-        'з': 'z', 'и': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+        'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
         'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c',
         'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu',
         'я': 'ya', 'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'E',
@@ -98,4 +128,97 @@ export function slugify(text) {
 
     const transliterated = text.split('').map(char => cyrillicMap[char] || char).join('');
     return transliterated.charAt(0).toLowerCase() + transliterated.slice(1);
+}
+
+
+export const getPhoneIdWithPhoneOption = (phoneOptionId, phoneList) => {
+    for (let phone of phoneList) {
+        if (phone.id === phoneOptionId) {
+            return {
+                allColors: phone.allColors,
+                allMemory: phone.allMemory,
+                allSim: phone.allSim,
+            }
+        }
+    }
+}
+
+export function generateCombinations(colors, memories, simTypes,
+    ColorProductList, MemoryProductsList, SIMProductList
+) {
+    let combinations = [];
+    colors.forEach(color => {
+        memories.forEach(memory => {
+            simTypes.forEach(simType => {
+                combinations.push(`${getColorName(color,ColorProductList)}-${getMemoryProductName(memory, MemoryProductsList)}-${
+                    transformSimType(getSIMProductName(simType, SIMProductList))
+                }`);
+                // combinations.push(`${color}-${memory}-ESIM-${simType}`);
+            });
+        });
+    });
+    return combinations;
+}
+
+
+export const temp = (PhonesParentList, PhonesOptions, ColorProductList, MemoryProductsList, SIMProductList) => {
+    let allColors = PhonesParentList.allColors
+    let allMemory = PhonesParentList.allMemory
+    let allSim = PhonesParentList.allSim
+
+    let tempa = generateCombinations(allColors, allMemory, allSim, ColorProductList, MemoryProductsList, SIMProductList)
+    console.log(tempa.length, PhonesOptions.length)
+
+    // console.log(tempa)
+
+    // for (let key of tempa) {
+    //     console.log(key)
+    // }
+
+    for (let phonesOption of PhonesOptions) {
+        console.log(extractRelevantPart(phonesOption.unique_id))
+    }
+
+}
+
+
+const getColorName = (idColor, listColor) => {
+    for (let color in listColor) {
+        if (idColor === listColor[color].id) {
+            return slugify(listColor[color].name).charAt(0).toUpperCase() + slugify(listColor[color].name).slice(1);
+        }
+    }
+}
+
+
+const getMemoryProductName = (memoryID, memoryList ) => {
+    for (let memory of memoryList) {
+        if (memoryID === memory.id) {
+            return memory.size
+        }
+    }
+}
+
+const getSIMProductName = (simID, simList) => {
+    for (let sim of simList) {
+        if (simID === sim.id) {
+            return sim.type
+        }
+    }
+} 
+
+
+function transformSimType(simType) {
+    // Убираем пробелы и заменяем " + " на "--"
+    return simType.replace(/\s+/g, '').replace('+', '--');
+}
+
+function extractRelevantPart(uniqueId) {
+    // Разбиваем строку на части по дефисам
+    let parts = uniqueId.split('-');
+    
+    // Извлекаем части, начиная с четвёртого элемента и до конца
+    let relevantPart = parts.slice(3).join('-');
+    
+    return relevantPart;
 }

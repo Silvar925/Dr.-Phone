@@ -1,7 +1,7 @@
 import styles from "./ProductCard.module.css"
 import { Button } from "../../shared/Button/Button"
 
-export const ProductCard = ({ img, alt, name, price, url }) => {
+export const ProductCard = ({ img, alt, name, price, url }) => {    
     return (
         <div className={styles.card}>
             <img src={img} alt={alt} className={styles.productImage} />

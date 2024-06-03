@@ -4,7 +4,7 @@ import { Outlet, useLocation } from "react-router-dom"
 import { phones } from "../../data"
 import { Header } from "../../widgets/Header/Header"
 import { Footer } from "../../widgets/Footer/Footer"
-import { NewDevicesList, ImagesProductList } from "../../data"
+import { PhonesOptions, ImagesProductList } from "../../data"
 import { getImageProduct } from "../../helpers"
 
 
@@ -19,8 +19,8 @@ export const Products = () => {
                 <div className={styles.widthContainer}>
                     <section className={styles.container}>
                         {productList.map((item, index) => (
-                            console.log(item),
-                            <ProductCard key={item.unique_id} img={getImageProduct(ImagesProductList, item.images[0])} 
+                            console.log(getImageProduct(ImagesProductList, item.images)),
+                            <ProductCard key={index} img={getImageProduct(ImagesProductList, item.images[0])} 
                             name={item.name} price={item.price} url={item.unique_id} />
                         ))}
                     </section>
@@ -35,7 +35,7 @@ export const Products = () => {
 
 
 const dictionary = {
-    '/serivce/phones': NewDevicesList,
+    '/serivce/phones': PhonesOptions,
     '/serivce/allDevices': phones,
     '/serivce/accessories': phones,
     '/serivce/deviceProtection': phones,

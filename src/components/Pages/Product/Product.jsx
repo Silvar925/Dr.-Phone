@@ -4,14 +4,15 @@ import { Link, useLocation } from "react-router-dom"
 import { ProductFilter } from "../../shared/ProductFilter/ProductFilter"
 import { getStringFromRight } from "../../helpers"
 
-import { NewDevicesList as list, ColorProductList, ImagesProductList, NewDevicesList } from "../../data"
+import { ColorProductList, ImagesProductList, PhonesOptions, PhonesList, MemoryProductsList, SIMProductList } from "../../data"
 
 import { WhiteBox } from "../../shared/WhiteBox/WhiteBox"
 import { Button } from "../../shared/Button/Button"
 import { GetProduct } from "../../widgets/GetProduct/GetProduct"
 import { ArrowButton } from "../../shared/ArrowButton/ArrowButton"
 
-import { getColorProduct, getArrayImageProduct, getProduchWithList, getColor } from '../../helpers';
+import { getColorProduct, getArrayImageProduct, getProduchWithList, getColor, 
+    getPhoneIdWithPhoneOption, getMemoryProduct, getSIMProduct } from '../../helpers';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -30,12 +31,11 @@ export const Product = () => {
     let producetID = getStringFromRight(location)
 
 
-    let product = getProduchWithList(producetID, NewDevicesList)
-
+    let product = getProduchWithList(producetID, PhonesOptions)
+    let phoneParent = getPhoneIdWithPhoneOption(product.phone, PhonesList)
 
     const [clickImages, setClickImages] = useState(false)
     const [img, setImg] = useState(null)
-
 
     const clickSlideHandel = (item) => {
         setImg(item)
@@ -47,7 +47,6 @@ export const Product = () => {
         baskesList.push(product)
     }
 
-
     let productImageList = getArrayImageProduct(product.images, ImagesProductList)
 
     //Работа с фильтром
@@ -56,8 +55,6 @@ export const Product = () => {
     const [productColor, setProductColor] = useState(colorProduct)
     const [productMemory, setProductMempry] = useState(product.memory)
     const [productSIM, setProductSIM] = useState(product.sim)
-
-    // console.log('product', product.sim)
 
 
     return (
@@ -115,7 +112,7 @@ export const Product = () => {
 
                                         <div className={styles.carousel}>
                                             {
-                                                list.map((item, index) => {
+                                                PhonesList.map((item, index) => {
                                                     console.log(item)
                                                     return (
                                                         <div key={item.id} className={styles.carouselDote} />
@@ -134,14 +131,14 @@ export const Product = () => {
                             }
 
                             <div className={styles.filterList}>
-                                <ProductFilter name="Цвета" type="color" listItems={getColorProduct(product.allColors, ColorProductList)}
+                                <ProductFilter name="Цвета" type="color" listItems={getColorProduct(phoneParent.allColors, ColorProductList)}
                                     activeColor={productColor}
                                 />
-                                <ProductFilter name="Объем встроенной памяти" listItems={['128Gb', '256Gb', '512Gb', '1024Gb']}
-                                    activeTag={productMemory}
+                                <ProductFilter name="Объем встроенной памяти" listItems={getMemoryProduct(phoneParent.allMemory, MemoryProductsList)}
+                                    activeTag={productMemory} type="memory"
                                 />
-                                <ProductFilter name="SIM-карта" listItems={['SIM+SIM', 'ESIM+SIM', 'ESIM ONLY']}
-                                    activeTag={productSIM}
+                                <ProductFilter name="SIM-карта" listItems={getSIMProduct(phoneParent.allSim, SIMProductList)}
+                                    activeTag={productSIM} type="sim"
                                 />
                             </div>
                         </div>
