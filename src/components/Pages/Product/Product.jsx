@@ -132,13 +132,13 @@ export const Product = () => {
 
                             <div className={styles.filterList}>
                                 <ProductFilter name="Цвета" type="color" listItems={getColorProduct(phoneParent.allColors, ColorProductList)}
-                                    activeColor={productColor}
+                                    activeColor={productColor} selectPhone = {product}
                                 />
                                 <ProductFilter name="Объем встроенной памяти" listItems={getMemoryProduct(phoneParent.allMemory, MemoryProductsList)}
-                                    activeTag={productMemory} type="memory"
+                                    activeTag={productMemory} type="memory" selectPhone = {product}
                                 />
                                 <ProductFilter name="SIM-карта" listItems={getSIMProduct(phoneParent.allSim, SIMProductList)}
-                                    activeTag={productSIM} type="sim"
+                                    activeTag={productSIM} type="sim" selectPhone = {product}
                                 />
                             </div>
                         </div>

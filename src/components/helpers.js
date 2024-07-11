@@ -166,18 +166,16 @@ export const temp = (PhonesParentList, PhonesOptions, ColorProductList, MemoryPr
     let allMemory = PhonesParentList.allMemory
     let allSim = PhonesParentList.allSim
 
-    let tempa = generateCombinations(allColors, allMemory, allSim, ColorProductList, MemoryProductsList, SIMProductList)
-    console.log(tempa.length, PhonesOptions.length)
-
+    let combinations = generateCombinations(allColors, allMemory, allSim, ColorProductList, MemoryProductsList, SIMProductList)
     // console.log(tempa)
 
     // for (let key of tempa) {
     //     console.log(key)
     // }
 
-    for (let phonesOption of PhonesOptions) {
-        console.log(extractRelevantPart(phonesOption.unique_id))
-    }
+    // for (let phonesOption of PhonesOptions) {
+    //     console.log(extractRelevantPart(phonesOption.unique_id))
+    // }
 
 }
 
@@ -209,16 +207,11 @@ const getSIMProductName = (simID, simList) => {
 
 
 function transformSimType(simType) {
-    // Убираем пробелы и заменяем " + " на "--"
     return simType.replace(/\s+/g, '').replace('+', '--');
 }
 
 function extractRelevantPart(uniqueId) {
-    // Разбиваем строку на части по дефисам
     let parts = uniqueId.split('-');
-    
-    // Извлекаем части, начиная с четвёртого элемента и до конца
     let relevantPart = parts.slice(3).join('-');
-    
     return relevantPart;
 }

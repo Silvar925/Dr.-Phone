@@ -6,7 +6,7 @@ import { ColorProductList, PhonesList, PhonesOptions, MemoryProductsList, SIMPro
 import { useState } from "react";
 
 
-export const ProductFilter = ({ name, type, listItems, onClick, activeColor, activeTag }) => {
+export const ProductFilter = ({ name, type, listItems, activeColor, activeTag, selectPhone }) => {
     const url = useLocation().pathname
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
         let temp = getKeyColor(color, ColorProductList)
 
         const capitalizeFirstLetter = (string) => {
-            if (!string) return string; // проверка на пустую строку
+            if (!string) return string;
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
@@ -32,7 +32,7 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
         partActiveUrl[3] = colorUrl
 
         let newUrlSUKA = partActiveUrl.join('/')
-        navigate(newUrlSUKA);
+        // navigate(newUrlSUKA);
     }
 
 
@@ -48,8 +48,6 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
         partActiveUrl[partActiveUrl.length - 1] = newUrlpartEndUrl
 
         let newUrl = partActiveUrl.join("/")
-
-        console.log
 
         // navigate(newUrl)
     }
@@ -67,8 +65,32 @@ export const ProductFilter = ({ name, type, listItems, onClick, activeColor, act
     let phoneParent = getPhoneIdWithPhoneOption(product.phone, PhonesList)
 
 
-    temp(phoneParent, PhonesOptions, ColorProductList, MemoryProductsList, SIMProductList)
+    // temp(phoneParent, PhonesOptions, ColorProductList, MemoryProductsList, SIMProductList)
 
+    const checkingExistence = () => {
+
+        if (type === 'color') {
+            for (let item of listItems) {
+                // console.log('item: ', item)
+            }
+
+            for (let phoneOption of PhonesOptions) {
+                console.log(phoneOption)
+                getPhoneWithListOptionPhone(phoneOption.phone, PhonesList)
+            }
+        }
+    }
+
+    checkingExistence()
+
+
+    const getPhoneWithListOptionPhone = (phoneOptionId, PhonesList) => {
+        for (let phoneParent of PhonesList) {
+            if (phoneOptionId === phoneParent.id) {
+                console.log(phoneParent)
+            }
+        }
+    }
 
     return (
         <div className={styles.container}>

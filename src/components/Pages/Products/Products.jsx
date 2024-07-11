@@ -19,7 +19,6 @@ export const Products = () => {
                 <div className={styles.widthContainer}>
                     <section className={styles.container}>
                         {productList.map((item, index) => (
-                            console.log(getImageProduct(ImagesProductList, item.images)),
                             <ProductCard key={index} img={getImageProduct(ImagesProductList, item.images[0])} 
                             name={item.name} price={item.price} url={item.unique_id} />
                         ))}
